@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GrooveGuardian Hub</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #121212;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    .header {
+      background-color: #ff6600;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      margin: 0;
+      color: #fff;
+    }
+
+    .tab-container {
+      display: flex;
+      justify-content: center;
+      background-color: #1e1e1e;
+      padding: 10px 0;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .tab {
+      padding: 15px 30px;
+      cursor: pointer;
+      background-color: #2a2a2a;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      margin: 0 5px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .tab:hover, .tab.active {
+      background-color: #ff6600;
+      color: #fff;
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #181818;
+      color: #aaa;
+      font-size: 14px;
+      margin-top: 40px;
+      box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer a {
+      color: #ff9933;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    a {
+      color: #ff9933;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    h2 {
+      color: #ff9933;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* Add mobile responsiveness */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 22px;
+        text-align: center;
+      }
+
+      .tab {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+
+      .content {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+  <script>
+    function showContent(tabName) {
+      const contents = document.querySelectorAll('.content');
+      const tabs = document.querySelectorAll('.tab');
+
+      contents.forEach(content => content.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      document.getElementById(tabName).classList.add('active');
+      document.getElementById(tabName + '-tab').classList.add('active');
+    }
+  </script>
+</head>
+<body>
+  <div class="header">
+    <img src="GrooveGuardian Logo.webp" alt="GrooveGuardian Logo">
+    <h1>GrooveGuardian</h1>
+  </div>
+
+  <div class="tab-container">
+    <button class="tab active" id="Terms-tab" onclick="showContent('Terms')">Terms of Service</button>
+    <button class="tab" id="Privacy-tab" onclick="showContent('Privacy')">Privacy Policy</button>
+  </div>
+
+  <div id="Terms" class="content active">
+    <h2>Terms of Service</h2>
+    <p>Welcome to GrooveGuardian! By using this bot, you agree to the following terms:</p>
+    <ul>
+      <li><strong>1. Use of the Bot:</strong> The Bot Owner, Ghoulkid, grants the User a non-exclusive, non-transferable, limited license to use GrooveGuardian for personal or non-commercial purposes.</li>
+      <li><strong>2. Prohibited Use:</strong> The User may not use GrooveGuardian in any way that violates applicable laws, rules, or regulations or infringes upon the rights of any third party. The User may not use GrooveGuardian for any commercial purposes without the express written consent of the Bot Owner.</li>
+      <li><strong>3. Limitation of Liability:</strong> The Bot Owner shall not be liable for any damages arising out of the use or inability to use GrooveGuardian, including but not limited to, damages for loss of profits, loss of data, or other intangible losses.</li>
+      <li><strong>4. Modifications to the Bot:</strong> The Bot Owner may modify or discontinue GrooveGuardian at any time without notice. The User agrees that the Bot Owner shall not be liable to the User or any third party for any modification, suspension, or discontinuance of the Bot.</li>
+      <li><strong>5. Intellectual Property:</strong> GrooveGuardian and all intellectual property rights therein are and shall remain the property of Anshul Chauhan. The User agrees not to copy, modify, or distribute the Bot or any portion thereof without the express written consent of the Bot Owner.</li>
+      <li><strong>6. Indemnification:</strong> The User agrees to indemnify and hold harmless the Bot Owner, its affiliates, and their respective directors, officers, employees, and agents from any and all claims, damages, liabilities, costs, and expenses, including reasonable attorneys' fees, arising out of the User's use of GrooveGuardian.</li>
+      <li><strong>7. Termination:</strong> This Agreement may be terminated by either party at any time for any reason. Upon termination, the User must immediately cease all use of GrooveGuardian.</li>
+      <li><strong>8. Governing Law:</strong> This Agreement shall be governed by and construed in accordance with the laws of New York. Any dispute arising under or in connection with this Agreement shall be resolved by arbitration in accordance with the rules of AAA.</li>
+      <li><strong>9. Entire Agreement:</strong> This Agreement constitutes the entire agreement between the parties and supersedes all prior or contemporaneous agreements or representations, whether written or oral, relating to GrooveGuardian.</li>
+    </ul>
+    <p>By using GrooveGuardian, the User acknowledges that they have read this Agreement, understand it, and agree to be bound by its terms and conditions.</p>
+  </div>
+
+  <div id="Privacy" class="content">
+    <h2>Privacy Policy</h2>
+    <p>Your privacy is important to us. Here's what we collect and how we use it:</p>
+    <ul>
+      <li><strong>Data Collected:</strong> Minimal data such as server and user IDs for functionality.</li>
+      <li><strong>Usage:</strong> Data is used solely to provide bot services and ensure optimal performance.</li>
+      <li><strong>Retention:</strong> Data is stored securely and removed upon request.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    &copy; 2024 GrooveGuardian. All rights reserved.</a>
+  </div>
+</body>
+</html>
