@@ -1,29 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('.card, .info-grid, .getbot-card');
 
-    // Initial styling for fade-in effect
+    // Apply initial styles for fade-in and zoom effect
     elements.forEach(el => {
-        el.style.opacity = 0;
-        el.style.transform = 'scale(0.9)'; // Initial scale for a slight zoom effect
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; // Combined transition
+        Object.assign(el.style, {
+            opacity: '0',
+            transform: 'scale(0.9)', // Slight zoom-out effect
+            transition: 'opacity 0.6s ease, transform 0.6s ease'
+        });
     });
 
-    // Intersection Observer setup
+    // Intersection Observer options
     const observerOptions = {
-        threshold: 0.2, // Element becomes visible when 20% is in the viewport
-        rootMargin: '0px 0px -50px 0px' // Trigger animation slightly before reaching the viewport
+        threshold: 0.2, // Element visible when 20% is in the viewport
+        rootMargin: '0px 0px -50px 0px' // Trigger animation before entering the viewport
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'scale(1)'; // Restore scale to normal
-                observer.unobserve(entry.target); // Stop observing once animated
+                const { target } = entry;
+                target.style.opacity = '1';
+                target.style.transform = 'scale(1)'; // Reset to original size
+                observer.unobserve(target); // Stop observing after animation
             }
         });
     }, observerOptions);
 
-    // Observe each element for animation
+    // Attach the observer to each element
     elements.forEach(el => observer.observe(el));
 });
